@@ -1,6 +1,8 @@
+require("dotenv").config()
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const URL = process.env.MONGODB_URI;
 
 const app = express();
 
@@ -24,7 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //database connection
 db.mongoose
-  .connect(MONGODB_URI, {
+  .connect(URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
